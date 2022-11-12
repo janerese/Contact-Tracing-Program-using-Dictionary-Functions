@@ -18,7 +18,6 @@ initial_dictionary = {
 }
 
 contacts_dictionary = {
-    "Contact": {}
 }
 
 initial_dictionary.update(contacts_dictionary)
@@ -34,7 +33,7 @@ def print_menu():
     print("2 -> Search")
     print("3 -> Exit program [Y/N]")
 
-    # Allows user input to select item in the menu
+# Allows user input to select item in the menu
 while loop:
     print_menu()
 
@@ -45,20 +44,38 @@ while loop:
         print("Invalid choice.")
     else:
         if user_input == 1:
+            contact_key = input("Please enter your full name to be used as data file name: ")
             print("Please complete this form to provide us with the esential information that will aid in contact tracing.")
-            contacts_dictionary["Contact"]["Full Name"] = input("Full Name: ")
-            contacts_dictionary["Contact"]["Gender"] = input("Gender [Male/Female/Other]: ")
-            contacts_dictionary["Contact"]["Age"] = int(input("Age: "))
-            contacts_dictionary["Contact"]["Address"] = input("Address: ")
-            contacts_dictionary["Contact"]["Email Address"]= input("Email Address: ")
-            contacts_dictionary["Contact"]["Phone Number"] = int(input("Phone Number: "))
-            contacts_dictionary["Contact"]["Temperature"] = float(input("Temperature: "))
-            contacts_dictionary["Contact"]["Vaccination Status"] = input("Vaccination Status [Not Yet/1st Dose/2nd Dose]: ")
-            contacts_dictionary["Contact"]["COVID Status"] = input("COVID Status in the last 14 days: ")
-            contacts_dictionary["Contact"]["Comorbidities"] = input("Existing comorbidities, or other health risks: ")
+            full_name = input("Full Name: ")
+            gender = input("Gender [Male/Female/Other]: ")
+            age = int(input("Age: "))
+            address = input("Address: ")
+            email = input("Email Address: ")
+            phone_number = int(input("Phone Number: "))
+            temperature = float(input("Temperature: "))
+            vax_status = input("COVID-19 Vaccination Status [Not Yet/1st Dose/2nd Dose]: ")
+            covid_status = input("COVID-19 Status in the last 14 days[Positive/Negative]: ")
+            comorbidities = input("Existing comorbidities, or other health risks: ")
 
-            for contact, information in contacts_dictionary["Contact"].items():
-                print(f"{contact}: {information}")
+            contacts_database = {
+                "Full Name": full_name,
+                "Gender": gender,
+                "Age": age,
+                "Address": address,
+                "Email Address": email,
+                "Phone Number": phone_number,
+                "Temperature": temperature,
+                "COVID-19 Vaccination Status": vax_status,
+                "COVID-19 Status": covid_status,
+                "Comorbidities": comorbidities
+            }
+
+            print(f"{contact_key}'s contact tracing information has been saved. Thank you for completing the form.")
+
+        if user_input == 2:
+            contact_name = input("Enter the Contact's full name: ")
+
+            
 
 
 
