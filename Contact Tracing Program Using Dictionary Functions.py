@@ -74,7 +74,7 @@ while True:
 
         elif user_input == 2:
             contact_name = input("Enter the Contact's full name: ")
-
+            
             print(f"{contact_name}'s contact tracing information has been accessed.")
             print("Full name:" , contacts_dictionary[contact_name]["Full Name"])
             print("Gender:" , contacts_dictionary[contact_name]["Gender"])
@@ -87,12 +87,17 @@ while True:
             print("COVID-19 Status:" , contacts_dictionary[contact_name]["COVID-19 Status"])
             print("Comorbidities:" , contacts_dictionary[contact_name]["Comorbidities"])
 
-        
 
-        
-
-
-
-
+        elif user_input == 3:
+            exit_program = input("Exit the program [Y/N]: ").lower()
+            if exit_program == "y":
+                print("Thank you for using this Contact-Tracing Program! ")
+                break
+            elif exit_program == "n":
+                print("Program will continue")
+                continue
+            else:
+                print("Invalid choice.")
+                continue
 
             
