@@ -54,7 +54,7 @@ while True:
 
     try:
         # Allows user input to select item in the menu
-        user_input = int(input("\n\t\t\tWhat do you want to do [1 / 2 / 3]: "))
+        user_input = int(input("\n\t\tWhat do you want to do [1 / 2 / 3]: "))
         print()
         print("*" * 68)
 
