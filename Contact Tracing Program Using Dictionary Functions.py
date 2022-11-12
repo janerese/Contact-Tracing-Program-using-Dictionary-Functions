@@ -1,7 +1,22 @@
 # Programmed by Erika Jane T. Reyes
 # Python program for contact tracing using dictionary functions
 
-# Declare a variable that stores an empty dictionary
+# Write a python program for contact tracing:
+
+# - Display a menu of options
+# 	Menu:
+# 		 1 -> Add an item
+# 		 2 -> Search
+# 		 3 -> Exit (y/n)
+# - Allow user to select item in the menu (check if valid)
+# - Perform the selected option
+# 		- Option 1: Ask personal data for contact tracing (Listed are sample only, add more)
+# 				   Use dictionary to store the info
+# 				   Use the full name as key
+# 				   The value is another dictionary of personal information
+# 		- Option 2: Search, ask full name then display the record
+# 		- Option 3: Ask the user if want to exit or retry.
+
 initial_dictionary = {
     "Reika Yamazaki": {
         "Full Name": "Reika Yamazaki",
@@ -17,7 +32,7 @@ initial_dictionary = {
         "Comorbidities": "None"
     }
 }
-
+# Declare a variable that stores an empty dictionary
 contacts_dictionary = {
 }
 
@@ -33,11 +48,11 @@ def print_menu():
     print("\t\t\t3 -> Exit program [Y/N]\n")
     print("*" * 68)
 
-# Allows user input to select item in the menu
 while True:
     print_menu()
 
     try:
+        # Allows user input to select item in the menu
         user_input = int(input("\n\t\t\tWhat do you want to do: "))
         print()
         print("*" * 68)
@@ -45,7 +60,7 @@ while True:
     except ValueError:
         print("\n\t\t\tInvalid choice.\n")
     else:
-        # Allows the user to add item to  contacts dictionary
+        # Allows the user to add item to contacts dictionary
         if user_input == 1:
             contact_key = input("\n      Please enter your full name to be used as data file name: \n\t\t\t")
             print("\n\t    Please complete this form to provide us with the\n\tesential information that will aid in contact tracing.\n")
@@ -58,12 +73,12 @@ while True:
             phone_number = int(input("Phone Number: "))
             temperature = float(input("Temperature: "))
             vax_status = input("COVID-19 Vaccination Status [Not Yet/1st Dose/2nd Dose]: ")
-            covid_status = input("COVID-19 Status in the last 14 days[Positive/Negative]: ")
+            covid_status = input("COVID-19 Status in the last 14 days [Positive/Negative]: ")
             comorbidities = input("Existing comorbidities, or other health risks: ")
             print()
             print("*" * 68)
 
-
+            # Storing user input in the contacts dictionary
             contacts_dictionary[contact_key] = {
                 "Full Name": full_name,
                 "Gender": gender,
@@ -114,6 +129,7 @@ while True:
                 print("\n\t\t\tInvalid choice.\n")
                 continue
 
+# Prints contacts dictionary
 print("\n\nCONTACTS DICTIONARY:\n")
 print(*[str(key) + ':' + str(values) for key,values in contacts_dictionary.items()], sep='\n\n')
 print("\n")
