@@ -6,13 +6,14 @@ initial_dictionary = {
     "Reika Yamazaki": {
         "Full Name": "Reika Yamazaki",
         "Gender": "Female",
+        "Age": 19,
         "Sex": "Female",
         "Address": "Amaya, Tanza Cavite",
         "Email Address": "reiyamazakifg@gmail.com",
         "Phone Number": "09999999999",
         "Temperature": 36.5,
-        "Vaccination Status": "2nd dose",
-        "COVID Status": "Negative",
+        "COVID-19 Vaccination Status": "2nd dose",
+        "COVID-19 Status": "Negative",
         "Comorbidities": "None"
     }
 }
@@ -20,9 +21,7 @@ initial_dictionary = {
 contacts_dictionary = {
 }
 
-initial_dictionary.update(contacts_dictionary)
-
-loop = True
+contacts_dictionary.update(initial_dictionary)
 
 # Display a menu of options
 def print_menu():
@@ -33,13 +32,14 @@ def print_menu():
     print("2 -> Search")
     print("3 -> Exit program [Y/N]")
 
+
 # Allows user input to select item in the menu
-while loop:
+
+while True:
     print_menu()
 
     try:
         user_input = int(input("What do you want to do: "))
-
     except ValueError:
         print("Invalid choice.")
     else:
@@ -57,7 +57,7 @@ while loop:
             covid_status = input("COVID-19 Status in the last 14 days[Positive/Negative]: ")
             comorbidities = input("Existing comorbidities, or other health risks: ")
 
-            contacts_database = {
+            contacts_dictionary[contact_key] = {
                 "Full Name": full_name,
                 "Gender": gender,
                 "Age": age,
@@ -72,10 +72,24 @@ while loop:
 
             print(f"{contact_key}'s contact tracing information has been saved. Thank you for completing the form.")
 
-        if user_input == 2:
+        elif user_input == 2:
             contact_name = input("Enter the Contact's full name: ")
 
-            
+            print(f"{contact_name}'s contact tracing information has been accessed.")
+            print("Full name:" , contacts_dictionary[contact_name]["Full Name"])
+            print("Gender:" , contacts_dictionary[contact_name]["Gender"])
+            print("Age:" , contacts_dictionary[contact_name]["Age"])
+            print("Address:" , contacts_dictionary[contact_name]["Address"])
+            print("Email Address:" , contacts_dictionary[contact_name]["Email Address"])
+            print("Phone Number:" , contacts_dictionary[contact_name]["Phone Number"])
+            print("Temperature:" , contacts_dictionary[contact_name]["Temperature"])
+            print("COVID-19 Vaccination Status:" , contacts_dictionary[contact_name]["COVID-19 Vaccination Status"])
+            print("COVID-19 Status:" , contacts_dictionary[contact_name]["COVID-19 Status"])
+            print("Comorbidities:" , contacts_dictionary[contact_name]["Comorbidities"])
+
+        
+
+        
 
 
 
