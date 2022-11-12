@@ -36,6 +36,7 @@ initial_dictionary = {
 contacts_dictionary = {
 }
 
+# Append initial dictionary to empty dictionary
 contacts_dictionary.update(initial_dictionary)
 
 # Display a menu of options
@@ -53,7 +54,7 @@ while True:
 
     try:
         # Allows user input to select item in the menu
-        user_input = int(input("\n\t\t\tWhat do you want to do: "))
+        user_input = int(input("\n\t\t\tWhat do you want to do [1 / 2 / 3]: "))
         print()
         print("*" * 68)
 
